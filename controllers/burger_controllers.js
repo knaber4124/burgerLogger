@@ -1,16 +1,16 @@
 let express = require('express');
+let router = express.Router();
 let burger = require('../models/burger');
 
-let router = express.Router();
 
-router.get('/', function(req,res){
+router.get("/", function(req,res){
     burger.all(function(data){
         let object = {
             burger:data
         };
-    })
-    console.log(object);
-    res.render('index',object);
+        console.log(object);
+        res.render("index",object);
+    });
 });
 
 router.post('/api/burgers', function(req,res){
